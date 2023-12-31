@@ -1,1 +1,10 @@
-<p>home works!</p>
+<div class="container">
+  <div class="saldo">
+    <h1>{{ saldo | number : "1.2-2" }}</h1>
+  </div>
+  <div class="acoes-conta">
+    <button>SACAR</button>
+    <button (click)="deposit()">DEPOSITAR</button>
+    <button>PIX</button>
+  </div>
+</div>
