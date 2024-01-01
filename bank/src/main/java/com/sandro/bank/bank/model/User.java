@@ -1,5 +1,6 @@
 package com.sandro.bank.bank.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.hibernate.validator.constraints.UniqueElements;
@@ -12,7 +13,9 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -3914210245535057132L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
