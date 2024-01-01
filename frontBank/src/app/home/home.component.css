@@ -1,17 +1,16 @@
-.container{
-    background-color: aqua;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    /* box-shadow: 1em 0.5em; */
-    width: 900px;
-    height: 700px;
+.container {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
-.acoes-conta{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 70px;
+.acoes-conta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70px;
 }
