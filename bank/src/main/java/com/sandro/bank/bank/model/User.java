@@ -3,15 +3,15 @@ package com.sandro.bank.bank.model;
 import java.util.Date;
 
 import org.hibernate.validator.constraints.UniqueElements;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
-@Document(collection = "user")
+@Table
 public class User {
 
 	@Id
