@@ -16,8 +16,8 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 6637313898568372505L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer accountId;
 
 	private User userOwner;
 
@@ -29,14 +29,6 @@ public class Account implements Serializable {
 		this.userOwner = userOwner;
 		this.createdAt = createdAt;
 		this.active = active;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public User getUserOwner() {

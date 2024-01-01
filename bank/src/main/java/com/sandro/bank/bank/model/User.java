@@ -12,14 +12,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "users")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = -3914210245535057132L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer userId;
 
 	@UniqueElements
 	private Long cpf;
