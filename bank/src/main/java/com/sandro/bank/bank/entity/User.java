@@ -1,4 +1,4 @@
-package com.sandro.bank.bank.model;
+package com.sandro.bank.bank.entity;
 
 import java.io.Serializable;
 import java.util.Date;
