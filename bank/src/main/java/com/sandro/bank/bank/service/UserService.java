@@ -1,11 +1,15 @@
 package com.sandro.bank.bank.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.sandro.bank.bank.model.User;
+import com.sandro.bank.bank.entity.User;
 import com.sandro.bank.bank.repository.UserRepository;
+import com.sandro.bank.bank.service.validation.user.CpfValidator;
+
+import jakarta.validation.Valid;
 
 @Service
 public class UserService {
@@ -18,6 +22,10 @@ public class UserService {
 
 	public List<User> findAll() {
 		return userRepository.findAll();
+	}
+
+	public boolean validateUser(@Valid Long cpf, String name, String email, Date birthDate) {
+		return CpfValidator.validate(cpf);
 	}
 
 }

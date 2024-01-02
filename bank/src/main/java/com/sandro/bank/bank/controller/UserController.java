@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sandro.bank.bank.model.User;
+import com.sandro.bank.bank.entity.User;
 import com.sandro.bank.bank.service.UserService;
 
 import jakarta.validation.Valid;
@@ -28,18 +30,18 @@ public class UserController {
 		return userService.findAll();
 	}
 
-	public HttpStatus createUser(@Valid Long cpf, String name, String email, Date birthDate) {
-		if (validateUser(cpf, name, email, birthDate)) {
+	@PostMapping("/register")
+	public HttpStatus createUser(@Valid @RequestParam Long cpf, String name, String email, Date birthDate) {
+		if (userService.validateUser(cpf, name, email, birthDate)) {
 			return HttpStatus.CREATED;
 		} else {
 			return HttpStatus.FAILED_DEPENDENCY;
 		}
 	}
 
-	private Boolean validateUser(Long cpf, String name, String email, Date birthDate) {
-		// TODO Auto-generated method stub
-		return true;
-
+	@GetMapping("/register")
+	public String test() {
+		return "ok";
 	}
 
 }
