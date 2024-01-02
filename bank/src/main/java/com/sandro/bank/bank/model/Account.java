@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,11 +20,14 @@ public class Account implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer accountId;
 
+	@OneToOne
 	private User userOwner;
 
 	private Date createdAt;
 
 	private Boolean active;
+
+	private Float balance;
 
 	public Account(User userOwner, Date createdAt, Boolean active) {
 		this.userOwner = userOwner;
@@ -55,4 +59,11 @@ public class Account implements Serializable {
 		this.active = active;
 	}
 
+	public Float getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Float balance) {
+		this.balance = balance;
+	}
 }
