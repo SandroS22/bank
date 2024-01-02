@@ -1,5 +1,8 @@
 # Simple bank application
 
+Still working on the project.
+
+
 This application was made using:
 * Java 11
 * Angular
