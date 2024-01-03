@@ -6,9 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  nome: string = '';
+  username: string = '';
+  password: string = '';
 
-  alerta(): void {
-    window.alert(this.nome);
+  onSubmit() {
+    console.log('Username:', this.username);
+    console.log('Password:', this.password);
   }
 }
