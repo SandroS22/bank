@@ -2,12 +2,12 @@
   <h1>Bank Login</h1>
   <form (submit)="onSubmit()">
     <div class="form-group">
-      <label for="username">Username</label>
+      <label for="username">Email</label>
       <input
-        type="text"
+        type="email"
         id="username"
         class="form-control"
-        [(ngModel)]="username"
+        [(ngModel)]="email"
         name="username"
         required
       />
@@ -24,5 +24,19 @@
       />
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
+
+    <style>
+      .d-flex align-items-center {
+        padding-right: 10px;
+      }
+    </style>
+    <div class="d-flex align-items-center justify-content-center">
+      <!-- Your content here -->
+    </div>
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-center">
+        <button type="button" class="btn btn-primary">Reset Password</button>
+      </div>
+    </div>
   </form>
 </div>
