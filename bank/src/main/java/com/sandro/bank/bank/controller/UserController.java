@@ -34,8 +34,9 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public HttpStatus createUser(@Valid @RequestParam Long cpf, String name, String email, Date birthDate) {
-		if (userService.validateUser(cpf, name, email, birthDate)) {
+	public HttpStatus createUser(@Valid @RequestParam Long cpf, String name, String email, String password,
+			Date birthDate) {
+		if (userService.validateUser(cpf, name, email, password, birthDate)) {
 			return HttpStatus.CREATED;
 		} else {
 			return HttpStatus.BAD_REQUEST;

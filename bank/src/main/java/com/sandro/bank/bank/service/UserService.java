@@ -24,7 +24,7 @@ public class UserService {
 		return userRepository.findAll();
 	}
 
-	public boolean validateUser(@Valid Long cpf, String name, String email, Date birthDate) {
+	public boolean validateUser(@Valid Long cpf, String name, String email, String password, Date birthDate) {
 		return CpfValidator.validate(cpf);
 	}
 
