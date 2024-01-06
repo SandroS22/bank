@@ -30,6 +30,8 @@ public class User implements Serializable {
 	@UniqueElements
 	private String email;
 
+	private String password;
+
 	private Date birthDate;
 
 	@OneToOne
@@ -38,10 +40,11 @@ public class User implements Serializable {
 	public User() {
 	}
 
-	public User(Long cpf, String name, String email, Date birthDate) {
+	public User(Long cpf, String name, String email, String password, Date birthDate) {
 		this.cpf = cpf;
 		this.name = name;
 		this.email = email;
+		this.password = password;
 		this.birthDate = birthDate;
 	}
 
@@ -67,6 +70,14 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public Date getBirthDate() {
