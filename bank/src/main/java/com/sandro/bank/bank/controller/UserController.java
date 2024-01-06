@@ -38,7 +38,7 @@ public class UserController {
 		if (userService.validateUser(cpf, name, email, birthDate)) {
 			return HttpStatus.CREATED;
 		} else {
-			return HttpStatus.FAILED_DEPENDENCY;
+			return HttpStatus.BAD_REQUEST;
 		}
 	}
 
