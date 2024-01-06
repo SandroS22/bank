@@ -3,10 +3,12 @@ package com.sandro.bank.bank.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +28,16 @@ public class UserController {
 
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+
+	@GetMapping("/users/{id}")
+	public Object findUserById(@PathVariable Integer id) {
+		Optional<User> user = userService.findById(id);
+		if (user.isEmpty()) {
+			return HttpStatus.BAD_REQUEST;
+		} else {
+			return user.get();
+		}
 	}
 
 	@GetMapping("/users")

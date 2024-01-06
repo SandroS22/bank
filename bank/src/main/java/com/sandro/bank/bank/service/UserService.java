@@ -2,6 +2,7 @@ package com.sandro.bank.bank.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,10 @@ public class UserService {
 
 	public UserService(UserRepository userRepository) {
 		this.userRepository = userRepository;
+	}
+
+	public Optional<User> findById(Integer id) {
+		return userRepository.findById(id);
 	}
 
 	public List<User> findAll() {
