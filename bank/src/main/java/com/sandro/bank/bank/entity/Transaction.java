@@ -14,6 +14,8 @@ public class Transaction {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 
+	private Float value;
+
 	private Date date;
 
 	private Account origin;
@@ -24,8 +26,9 @@ public class Transaction {
 
 	}
 
-	public Transaction(Date date, Account origin, Account destination) {
+	public Transaction(Date date, Float value, Account origin, Account destination) {
 		this.date = date;
+		this.value = value;
 		this.origin = origin;
 		this.destination = destination;
 	}
@@ -36,6 +39,14 @@ public class Transaction {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Float getValue() {
+		return value;
+	}
+
+	public void setValue(Float value) {
+		this.value = value;
 	}
 
 	public Account getOrigin() {
