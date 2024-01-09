@@ -25,14 +25,11 @@ public class Account implements Serializable {
 
 	private Date createdAt;
 
-	private Boolean active;
-
 	private Float balance;
 
 	public Account(User userOwner, Date createdAt, Boolean active) {
 		this.userOwner = userOwner;
 		this.createdAt = createdAt;
-		this.active = active;
 	}
 
 	public User getUserOwner() {
@@ -49,14 +46,6 @@ public class Account implements Serializable {
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
-	}
-
-	public Boolean getActive() {
-		return active;
-	}
-
-	public void setActive(Boolean active) {
-		this.active = active;
 	}
 
 	public Float getBalance() {

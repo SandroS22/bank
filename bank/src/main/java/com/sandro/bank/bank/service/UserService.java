@@ -33,7 +33,7 @@ public class UserService {
 		return CpfValidator.validate(cpf);
 	}
 
-	public void desactivateUser(User user) {
+	public void deleteUser(User user) {
 		user.getAccount().setActive(false);
 		userRepository.delete(user);
 	}
