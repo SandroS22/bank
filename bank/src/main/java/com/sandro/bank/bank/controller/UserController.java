@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,9 +60,19 @@ public class UserController {
 	public HttpStatus updateUser(@Valid @PathVariable Integer id, @RequestParam(required = true) Long cpf, String name,
 			String email, String password, Date birthDate) {
 		if (userService.validateUser(cpf, name, email, password, birthDate)) {
-			return HttpStatus.CREATED;
+			return HttpStatus.OK;
 		} else {
 			return HttpStatus.BAD_REQUEST;
+		}
+	}
+
+	@DeleteMapping("/users/{id}")
+	public HttpStatus deleteUser(@PathVariable Integer id) {
+		Optional<User> user = userService.findById(id);
+		if (user.isEmpty()) {
+			return HttpStatus.BAD_REQUEST;
+		} else {
+			return HttpStatus.OK;
 		}
 	}
 
