@@ -34,7 +34,6 @@ public class UserService {
 	}
 
 	public void deleteUser(User user) {
-		user.getAccount().setActive(false);
 		userRepository.delete(user);
 	}
 
