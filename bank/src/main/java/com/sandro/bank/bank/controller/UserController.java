@@ -1,6 +1,5 @@
 package com.sandro.bank.bank.controller;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,8 +46,8 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public HttpStatus createUser(@Valid @RequestParam Long cpf, String name, String email, String password,
-			Date birthDate) {
+	public HttpStatus createUser(@Valid @RequestParam(required = true) Long cpf, String name, String email,
+			String password, Date birthDate) {
 		if (userService.validateUser(cpf, name, email, password, birthDate)) {
 			return HttpStatus.CREATED;
 		} else {
@@ -55,11 +55,14 @@ public class UserController {
 		}
 	}
 
-	@GetMapping("/register")
-	public List<String> test() {
-		List<String> lista = new ArrayList<>();
-		lista.add("Sandro");
-		return lista;
+	@PutMapping("/users/{id}")
+	public HttpStatus updateUser(@Valid @PathVariable Integer id, @RequestParam(required = true) Long cpf, String name,
+			String email, String password, Date birthDate) {
+		if (userService.validateUser(cpf, name, email, password, birthDate)) {
+			return HttpStatus.CREATED;
+		} else {
+			return HttpStatus.BAD_REQUEST;
+		}
 	}
 
 }
