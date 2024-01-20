@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +26,7 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
+	@Autowired
 	private UserService userService;
 
 	public UserController(UserService userService) {
@@ -46,7 +48,7 @@ public class UserController {
 		return userService.findAll();
 	}
 
-	@PostMapping("/register")
+	@PostMapping("/users")
 	public HttpStatus createUser(@Valid @RequestParam(required = true) Long cpf, String name, String email,
 			String password, Date birthDate) {
 		if (userService.validateUser(cpf, name, email, password, birthDate)) {
@@ -76,4 +78,5 @@ public class UserController {
 		}
 	}
 
+	
 }
