@@ -40,7 +40,7 @@ public class TransactionController {
 		}
 	}
 
-	@PostMapping
+	@PostMapping("/transactions")
 	public void createTransaction(Date date, Float value, Account origin, Account destination) {
 
 	}
