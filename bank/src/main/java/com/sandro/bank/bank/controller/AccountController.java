@@ -1,5 +1,6 @@
 package com.sandro.bank.bank.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,10 @@ public class AccountController {
 
 	@Autowired
 	private AccountService accountService;
+
+	public List<Account> findAllAccount() {
+		return accountService.findAll();
+	}
 
 	@GetMapping("/account")
 	public Object findAccountById(Integer id) {

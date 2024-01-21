@@ -1,5 +1,6 @@
 package com.sandro.bank.bank.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ public class AccountService {
 
 	public Optional<Account> findById(Integer id) {
 		return accountRepository.findById(id);
+	}
+
+	public List<Account> findAll() {
+		return accountRepository.findAll();
 	}
 
 }
