@@ -74,9 +74,9 @@ public class UserController {
 		if (user.isEmpty()) {
 			return HttpStatus.BAD_REQUEST;
 		} else {
+			userService.deleteUser(user.get());
 			return HttpStatus.OK;
 		}
 	}
 
-	
 }
