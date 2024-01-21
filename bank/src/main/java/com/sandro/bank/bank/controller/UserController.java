@@ -52,6 +52,7 @@ public class UserController {
 	public HttpStatus createUser(@Valid @RequestParam(required = true) Long cpf, String name, String email,
 			String password, Date birthDate) {
 		if (userService.validateUser(cpf, name, email, password, birthDate)) {
+			userService.createUser(new User(cpf, name, email, password, birthDate));
 			return HttpStatus.CREATED;
 		} else {
 			return HttpStatus.BAD_REQUEST;
