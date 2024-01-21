@@ -3,6 +3,7 @@ package com.sandro.bank.bank.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +24,10 @@ public class Account implements Serializable {
 	@OneToOne
 	private User userOwner;
 
+	@Column(nullable = false)
 	private Date createdAt;
 
+	@Column(nullable = false)
 	private Float balance;
 
 	public Account(User userOwner, Date createdAt) {
