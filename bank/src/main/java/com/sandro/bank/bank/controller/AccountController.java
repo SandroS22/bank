@@ -26,8 +26,8 @@ public class AccountController {
 		return accountService.findAll();
 	}
 
-	@GetMapping("/account")
-	public Object findAccountById(Integer id) {
+	@GetMapping("/account/{id}")
+	public Object findAccountById(@PathVariable Integer id) {
 		Optional<Account> account = accountService.findById(id);
 		if (account.isEmpty()) {
 			return HttpStatus.BAD_REQUEST;
