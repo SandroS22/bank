@@ -27,7 +27,7 @@ public class Account implements Serializable {
 
 	private Float balance;
 
-	public Account(User userOwner, Date createdAt, Boolean active) {
+	public Account(User userOwner, Date createdAt) {
 		this.userOwner = userOwner;
 		this.createdAt = createdAt;
 	}
