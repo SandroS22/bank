@@ -27,8 +27,8 @@ public class AccountService {
 		return accountRepository.findAll();
 	}
 
-	public void deleteById(Integer id) {
-		accountRepository.deleteById(id);
+	public void delete(Account account) {
+		accountRepository.delete(account);
 	}
 
 }

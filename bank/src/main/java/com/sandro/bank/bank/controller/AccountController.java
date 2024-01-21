@@ -42,7 +42,7 @@ public class AccountController {
 		if (account.isEmpty()) {
 			return HttpStatus.BAD_REQUEST;
 		} else {
-			accountService.deleteById(id);
+			accountService.delete(account.get());
 			return HttpStatus.OK;
 		}
 	}
