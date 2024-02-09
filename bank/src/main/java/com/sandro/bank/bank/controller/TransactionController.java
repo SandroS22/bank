@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,10 +30,10 @@ public class TransactionController {
 	}
 
 	@GetMapping("/transactions/{id}")
-	public Object findTransactionById(@PathVariable Integer id) {
+	public Transaction findTransactionById(@PathVariable Integer id) {
 		Optional<Transaction> transaction = transactionService.findById(id);
 		if (transaction.isEmpty()) {
-			return HttpStatus.BAD_REQUEST;
+			return null;
 		} else {
 			return transaction.get();
 		}

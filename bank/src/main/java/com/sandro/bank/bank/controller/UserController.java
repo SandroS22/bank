@@ -34,10 +34,10 @@ public class UserController {
 	}
 
 	@GetMapping("/users/{id}")
-	public Object findUserById(@PathVariable Integer id) {
+	public User findUserById(@PathVariable Integer id) {
 		Optional<User> user = userService.findById(id);
 		if (user.isEmpty()) {
-			return HttpStatus.BAD_REQUEST;
+			return null;
 		} else {
 			return user.get();
 		}

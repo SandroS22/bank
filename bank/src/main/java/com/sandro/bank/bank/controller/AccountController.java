@@ -27,10 +27,10 @@ public class AccountController {
 	}
 
 	@GetMapping("/account/{id}")
-	public Object findAccountById(@PathVariable Integer id) {
+	public Account findAccountById(@PathVariable Integer id) {
 		Optional<Account> account = accountService.findById(id);
 		if (account.isEmpty()) {
-			return HttpStatus.BAD_REQUEST;
+			return null;
 		} else {
 			return account.get();
 		}
