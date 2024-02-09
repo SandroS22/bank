@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.sandro.bank.bank.entity.User;
 import com.sandro.bank.bank.repository.UserRepository;
-import com.sandro.bank.bank.service.validation.user.CpfValidator;
+import com.sandro.bank.bank.util.validation.user.CpfValidator;
 
 import jakarta.validation.Valid;
 
