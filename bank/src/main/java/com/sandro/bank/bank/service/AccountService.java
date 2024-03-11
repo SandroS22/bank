@@ -30,4 +30,8 @@ public class AccountService {
 	public void delete(Account account) {
 		accountRepository.delete(account);
 	}
+
+	public void createAccount(Account account) {
+		accountRepository.save(account);
+	}
 }

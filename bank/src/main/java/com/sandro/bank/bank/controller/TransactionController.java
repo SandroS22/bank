@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +16,10 @@ import com.sandro.bank.bank.entity.Account;
 import com.sandro.bank.bank.entity.Transaction;
 import com.sandro.bank.bank.service.AccountService;
 import com.sandro.bank.bank.service.TransactionService;
-import com.sandro.bank.bank.util.exception.OriginAccountSameAsDestinyAccountException;
+import com.sandro.bank.bank.util.exception.OriginSameAsDestinyException;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200")
 public class TransactionController {
 
 	@Autowired
@@ -55,11 +53,11 @@ public class TransactionController {
 		}
 		try {
 			if (origin == destination) {
-				throw new OriginAccountSameAsDestinyAccountException();
+				throw new OriginSameAsDestinyException();
 			} else {
 				return HttpStatus.ACCEPTED;
 			}
-		} catch (OriginAccountSameAsDestinyAccountException exception) {
+		} catch (OriginSameAsDestinyException exception) {
 			return HttpStatus.BAD_REQUEST;
 		}
 	}
